@@ -4,7 +4,7 @@ package com.mk.demo.arithmetic;
  * @author MengKai
  * @create 2020-04-08
  */
-public class Search {
+public class P04Search {
     public int threePointsSearch(int key, int low, int high, int[] array) {
         if (low > high) {
             return -1;
@@ -29,7 +29,7 @@ public class Search {
     }
 
     public static void main(String[] args) {
-        Search search = new Search();
+        P04Search search = new P04Search();
         int[] nums = {1, 3, 4, 8, 9, 10, 12, 15, 18, 19, 20, 25, 26, 29, 30};
 //        int key = 29;
 //        int key = 15;

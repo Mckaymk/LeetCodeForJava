@@ -4,11 +4,11 @@ package com.mk.demo.arithmetic;
  * @author MengKai
  * @create 2020-04-03
  */
-public class FindIndexEqualNum {
+public class P03FindIndexEqualNum {
 
 
     public static void main(String[] args) {
-        FindIndexEqualNum findIndexEqualNum = new FindIndexEqualNum();
+        P03FindIndexEqualNum findIndexEqualNum = new P03FindIndexEqualNum();
         int[] arrays1 = {-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 19, 20, 45, 96};
         int[] arrays2 = {-1, 0, 1, 3, 6, 7, 8, 9, 10, 11, 12, 18, 19, 18, 45, 96};
         //利用二分查找思路

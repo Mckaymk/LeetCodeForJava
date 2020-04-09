@@ -2,11 +2,11 @@ package com.mk.demo.arithmetic;
 
 /**
  * @author MengKai
- * @create 2020-03-11
+ * @create 2020-04-08
  */
-public class NutMatch {
+public class P01NutMatch {
     public static void main(String[] args) {
-        NutMatch demo = new NutMatch();
+        P01NutMatch demo = new P01NutMatch();
         int[] nut = {6, 9, 3, 7, 1, 8, 2, 5, 4};
 //        int[] nut = {5, 9, 3, 7, 1, 8, 2, 6, 4};
 //        int[] bolt = {7, 4, 5, 9, 2, 6, 8, 1, 3};

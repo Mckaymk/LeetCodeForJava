@@ -1,13 +1,10 @@
 package com.mk.demo.arithmetic;
 
-import java.util.Arrays;
-import java.util.List;
-
 /**
  * @author MengKai
  * @create 2020-04-06
  */
-public class MostRecent {
+public class P06MostRecent {
 
     class MostRecentPoint {
         private int left;
@@ -86,7 +83,7 @@ public class MostRecent {
     }
 
     public static void main(String[] args) {
-        MostRecent mostRecent = new MostRecent();
+        P06MostRecent mostRecent = new P06MostRecent();
         //有序数组，如果无序，需要先排序
         int[] array = {1, 3, 6, 8, 9, 13, 18, 20, 26, 30, 39};
         System.out.println(mostRecent.getMostRecent(0, array.length - 1, array));

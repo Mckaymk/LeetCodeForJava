@@ -1,16 +1,14 @@
 package com.mk.demo.arithmetic;
 
-import javax.sound.midi.SoundbankResource;
-
 /**
  * @author MengKai
  * @create 2020-04-06
  */
-public class CheckerboardOverlay {
+public class P02CheckerboardOverlay {
 
 
     public static void main(String[] args) {
-        CheckerboardOverlay checkerboardOverlay = new CheckerboardOverlay();
+        P02CheckerboardOverlay checkerboardOverlay = new P02CheckerboardOverlay();
         int n = 3;
         n = (int) Math.pow(2, n);
         int[][] arrays = new int[n][n];
