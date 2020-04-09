@@ -22,6 +22,7 @@ public class NutMatch {
             int i = left;
             int j = right;
             int tmpNum = 0;
+            //利用nut对bolt进行大小比较，划分
             while (i < j) {
                 while (i < j && bolt[i] < tmp) {
                     i++;
@@ -43,6 +44,7 @@ public class NutMatch {
             tmp = bolt[left];
             i = left;
             j = right;
+            //利用bolt对nut进行大小比较，划分
             while (i < j) {
                 while (i < j && nut[i] < tmp) {
                     i++;
@@ -64,6 +66,7 @@ public class NutMatch {
             showArray(nut);
             showArray(bolt);
             System.out.println("-------");
+            //分成两个部分后，在进行匹配划分
             quickSearch(nut, bolt, left + 1, i);
             quickSearch(nut, bolt, i + 1, right);
         }

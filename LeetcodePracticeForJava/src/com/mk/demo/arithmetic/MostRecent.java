@@ -61,12 +61,15 @@ public class MostRecent {
 
     public MostRecentPoint getMostRecent(int left, int right, int[] arrays) {
         int length = right - left + 1;
+        //如果只有一个点，构不成对
         if (length <= 1) {
             return null;
         }
+        //如果只有两个点了，直接返回
         if (length == 2) {
             return new MostRecentPoint(left, right);
         }
+        //对半分，分别找左右两个部分的最近点对，然后和分界线的两个点进行比较
         int mid = left + length / 2;
         MostRecentPoint leftRes = getMostRecent(left, mid, arrays);
         MostRecentPoint rightRes = getMostRecent(mid + 1, right, arrays);
@@ -84,7 +87,7 @@ public class MostRecent {
 
     public static void main(String[] args) {
         MostRecent mostRecent = new MostRecent();
-        //有序数组，如果没有序，先排序
+        //有序数组，如果无序，需要先排序
         int[] array = {1, 3, 6, 8, 9, 13, 18, 20, 26, 30, 39};
         System.out.println(mostRecent.getMostRecent(0, array.length - 1, array));
     }

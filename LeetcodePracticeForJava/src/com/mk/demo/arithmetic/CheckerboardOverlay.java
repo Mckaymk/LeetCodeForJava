@@ -51,7 +51,7 @@ public class CheckerboardOverlay {
                 }
             }
         }
-        //在没有1的剩余三块的中心点的其他三块设为1，相当与L
+        //在没有1的剩余三块的中心点处的其他三块设为1，相当与L
         if (n1 == 1) {
             array[row + subLength][col + subLength] = 1;
             array[row + subLength - 1][col + subLength] = 1;
@@ -74,7 +74,7 @@ public class CheckerboardOverlay {
             array[row + subLength - 1][col + subLength] = 1;
             array[row + subLength][col + subLength - 1] = 1;
         }
-
+        //依次在划分为四块求解
         paddingChessboard(row, col, subLength, array);
         paddingChessboard(row, col + subLength, subLength, array);
         paddingChessboard(row + subLength, col, subLength, array);
