@@ -17,7 +17,7 @@
 
 package leetcode.editor.cn;
 
-import java.util.List;
+import java.util.*;
 
 //java:二叉树的中序遍历
 public class P94BinaryTreeInorderTraversal {
@@ -49,11 +49,54 @@ public class P94BinaryTreeInorderTraversal {
      * TreeNode(int x) { val = x; }
      * }
      */
+
     class Solution {
         public List<Integer> inorderTraversal(TreeNode root) {
-            return null;
+            Stack<TreeNode> s = new Stack<TreeNode>();
+            List<Integer> res = new ArrayList();
+            if ( root == null){
+                return res;
+            }
+            do {
+                while (root != null) {
+                    s.push(root);
+                    root = root.left;
+                }
+                if (!s.isEmpty()) {
+                    TreeNode node = s.pop();
+                    res.add(node.val);
+                    root = node.right;
+                }
+            } while (!s.isEmpty() || root != null);
+
+            return res;
         }
     }
+
+
+//    class Solution {
+//        public List<Integer> inorderTraversal(TreeNode root) {
+//            List<Integer> res = new ArrayList();
+//            if (root != null) {
+//                inorderTraverForRecursion(root, res);
+//            }
+//
+//            return res;
+//        }
+//
+//        public void inorderTraverForRecursion(TreeNode root, List<Integer> list) {
+//            if (root.left != null) {
+//                inorderTraverForRecursion(root.left, list);
+//            }
+//            list.add(root.val);
+//            if (root.right != null) {
+//                inorderTraverForRecursion(root.right, list);
+//            }
+//        }
+//
+//    }
+
+
 //leetcode submit region end(Prohibit modification and deletion)
 
 }

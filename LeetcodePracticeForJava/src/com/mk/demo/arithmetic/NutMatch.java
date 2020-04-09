@@ -1,26 +1,22 @@
-package com.mk.demo;
-
-import javax.sound.midi.SoundbankResource;
-import java.util.Collection;
+package com.mk.demo.arithmetic;
 
 /**
  * @author MengKai
  * @create 2020-03-11
  */
-public class Demo {
+public class NutMatch {
     public static void main(String[] args) {
-        Demo demo = new Demo();
+        NutMatch demo = new NutMatch();
         int[] nut = {6, 9, 3, 7, 1, 8, 2, 5, 4};
 //        int[] nut = {5, 9, 3, 7, 1, 8, 2, 6, 4};
 //        int[] bolt = {7, 4, 5, 9, 2, 6, 8, 1, 3};
         int[] bolt = {7, 8, 5, 9, 2, 6, 4, 1, 3};
-//        demo.quickSearch(nut, bolt, 0, nut.length-1);
+        demo.quickSearch(nut, bolt, 0, nut.length - 1);
         demo.showArray(nut);
         demo.showArray(bolt);
     }
 
     public void quickSearch(int[] nut, int[] bolt, int left, int right) {
-
         if (left < right) {
             int tmp = nut[left];
             int i = left;
@@ -39,7 +35,7 @@ public class Demo {
                     bolt[j] = tmpNum;
                 }
             }
-//            bolt[i] = tmp;
+
             tmpNum = bolt[left];
             bolt[left] = bolt[i];
             bolt[i] = tmpNum;
@@ -60,7 +56,7 @@ public class Demo {
                     nut[j] = tmpNum;
                 }
             }
-//            nut[i] = tmp;
+
             tmpNum = nut[left];
             nut[left] = nut[i];
             nut[i] = tmpNum;
