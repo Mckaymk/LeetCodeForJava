@@ -23,10 +23,7 @@
 
 package leetcode.editor.cn;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 //java:二叉树的锯齿形层次遍历
 public class P103BinaryTreeZigzagLevelOrderTraversal {
@@ -64,7 +61,7 @@ public class P103BinaryTreeZigzagLevelOrderTraversal {
                 return listArrayList;
             }
 
-            Queue<TreeNode> queue = new LinkedList<TreeNode>();
+            Deque<TreeNode> queue = new LinkedList<TreeNode>();
             int level = 0;
             queue.add(root);
             while (!queue.isEmpty()) {
@@ -76,26 +73,27 @@ public class P103BinaryTreeZigzagLevelOrderTraversal {
                 int n = queue.size();
 
                 while (n > 0) {
-                    node = queue.poll();
-                    listArrayList.get(level).add(node.val);
-
                     if (level % 2 == 0) {
-                        if (node.right != null) {
-                            queue.add(node.right);
-                        }
+                        node = queue.pollFirst();
 
                         if (node.left != null) {
                             queue.add(node.left);
                         }
+                        if (node.right != null) {
+                            queue.add(node.right);
+                        }
+
+
                     } else {
+                        node = queue.pollLast();
+                        if (node. right != null) {
+                            queue.addFirst(node.right);
+                        }
                         if (node.left != null) {
-                            queue.add(node.left);
+                            queue.addFirst(node.left);
                         }
-                        if (node.right != null) {
-                            queue.add(node.right);
-                        }
-
                     }
+                    listArrayList.get(level).add(node.val);
                     n--;
                 }
                 level++;
