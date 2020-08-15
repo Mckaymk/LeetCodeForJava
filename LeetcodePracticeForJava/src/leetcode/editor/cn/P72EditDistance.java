@@ -48,12 +48,12 @@ public class P72EditDistance {
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
-        public int minDistance(String word1, String word2) {
+        public int minDistance1(String word1, String word2) {
             int w1 = word1.length();
             int w2 = word2.length();
 
             if (w1 * w2 == 0) {
-                return w1+w2;
+                return w1 + w2;
             }
 
             int[][] array = new int[w1 + 1][w2 + 1];
@@ -64,20 +64,51 @@ public class P72EditDistance {
             for (int i = 0; i < w2 + 1; i++) {
                 array[0][i] = i;
             }
-            for (int i = 1; i < w1+1; i++) {
-                for (int j = 1; j < w2+1; j++) {
+            for (int i = 1; i < w1 + 1; i++) {
+                for (int j = 1; j < w2 + 1; j++) {
                     int left = array[i - 1][j] + 1;
                     int down = array[i][j - 1] + 1;
                     int left_down = array[i - 1][j - 1];
                     if (word1.charAt(i - 1) != word2.charAt(j - 1)) {
                         left_down += 1;
                     }
-
                     array[i][j] = Math.min(Math.min(left, down), left_down);
                 }
             }
             return array[w1][w2];
         }
+
+        public int minDistance(String word1, String word2) {
+            int w1 = word1.length();
+            int w2 = word2.length();
+            if (w1 * w2 == 0) {
+                return w1 + w2;
+            }
+
+            int[][] array = new int[w1 + 1][w2 + 1];
+
+            for (int i = 0; i <= w1; i++) {
+                array[i][0] = i;
+            }
+            for (int i = 0; i <= w2; i++) {
+                array[0][i] = i;
+            }
+            for (int i = 1; i <= w1; i++) {
+                for (int j = 1; j <= w2; j++) {
+                    int left = array[i - 1][j] + 1;
+                    int bottom = array[i][j - 1] + 1;
+                    int upperLeft = array[i - 1][j - 1];
+                    if (word1.charAt(i - 1) != word2.charAt(j - 1)) {
+                        upperLeft += 1;
+                    }
+                    array[i][j] = Math.min(Math.min(left, bottom), upperLeft);
+                }
+            }
+            return array[w1][w2];
+
+
+        }
+
     }
 //leetcode submit region end(Prohibit modification and deletion)
 

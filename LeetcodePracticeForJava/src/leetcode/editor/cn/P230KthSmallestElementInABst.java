@@ -79,23 +79,22 @@ public class P230KthSmallestElementInABst {
      */
     class Solution {
         public int kthSmallest(TreeNode root, int k) {
-            //前序遍历递归
+            //中序遍历递归
 //            ArrayList<Integer> num = searchKthSmallest(root, new ArrayList<Integer>());
 //            return num.get(k - 1);
             //迭代
             LinkedList<TreeNode> stack = new LinkedList<>();
             while (true) {
                 while (root != null) {
-                    stack.add(root);
+                    stack.push(root);
                     root = root.left;
                 }
-                root = stack.removeLast();
+                root = stack.pop();
                 if (--k == 0) {
                     return root.val;
                 }
                 root = root.right;
             }
-
         }
 
         public ArrayList<Integer> searchKthSmallest(TreeNode root, ArrayList<Integer> arr) {
@@ -106,9 +105,7 @@ public class P230KthSmallestElementInABst {
             searchKthSmallest(root.left, arr);
             arr.add(root.val);
             searchKthSmallest(root.right, arr);
-
             return arr;
-
 
         }
     }

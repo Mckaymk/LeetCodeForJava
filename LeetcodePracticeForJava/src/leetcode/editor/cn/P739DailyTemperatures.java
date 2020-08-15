@@ -70,7 +70,7 @@ public class P739DailyTemperatures {
                 if (stack.isEmpty()) {
                     stack.push(new keyValue(i, T[i]));
                 } else {
-//[1, 1, 4, 2, 1, 1, 0, 0]。
+//[1, 1, 4, 2, 1, 1, 0, 0]。239
                     keyValue peek = stack.peek();    
                     while (T[i] > peek.getValue()) {
                         target[peek.getKey()] = i - peek.getKey();

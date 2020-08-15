@@ -42,7 +42,26 @@ public class P19RemoveNthNodeFromEndOfList {
      * }
      */
     class Solution {
+
         public ListNode removeNthFromEnd(ListNode head, int n) {
+            ListNode res = new ListNode(-1);
+            res.next = head;
+            ListNode preNode = res;
+            ListNode nextNode = res;
+            while (n >= 0) {
+                nextNode = nextNode.next;
+                n--;
+            }
+            while (nextNode != null) {
+                nextNode = nextNode.next;
+                preNode = preNode.next;
+            }
+            preNode.next = preNode.next.next;
+            return res.next;
+
+        }
+
+        public ListNode removeNthFromEnd1(ListNode head, int n) {
             ListNode tmp = new ListNode(0);
             tmp.next = head;
             ListNode preNode = tmp;

@@ -33,8 +33,54 @@ public class P2AddTwoNumbers {
      * }
      */
     class Solution {
+        public ListNode addTwoNumbers1(ListNode l1, ListNode l2) {
+            ListNode res = new ListNode(-1);
+            ListNode p1 = l1;
+            ListNode p2 = l2;
+            ListNode p3 = res;
+            int count = 0;
+            while (p1 != null || p2 != null) {
+                int x = (p1 != null) ? p1.val : 0;
+                int y = (p2 != null) ? p2.val : 0;
+                int sum = x + y + count;
+                count = sum / 10;
+                p3.next = new ListNode(sum % 10);
+                p3 = p3.next;
+                if (p1 != null) {
+                    p1 = p1.next;
+                }
+                if (p2 != null) {
+                    p2 = p2.next;
+                }
+            }
+            if (count > 0) {
+                p3.next = new ListNode(count);
+            }
+            return res.next;
+        }
+
         public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-            return null;
+            ListNode res = new ListNode(-1);
+            ListNode p = l1, q = l2, curr = res;
+            int count = 0;
+            while (p != null || q != null) {
+                int x = p != null ? p.val : 0;
+                int y = q != null ? q.val : 0;
+                int sum = x + y + count;
+                count = sum / 10;
+                curr.next = new ListNode(sum % 10);
+                curr = curr.next;
+                if (p != null) {
+                    p = p.next;
+                }
+                if (q != null) {
+                    q = q.next;
+                }
+            }
+            if (count > 0) {
+                curr.next = new ListNode(count);
+            }
+            return res.next;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

@@ -27,6 +27,8 @@
 
 package leetcode.editor.cn;
 
+import java.util.List;
+
 //java:K 个一组翻转链表
 public class P25ReverseNodesInKGroup {
     public static void main(String[] args) {
@@ -45,9 +47,61 @@ public class P25ReverseNodesInKGroup {
      */
     class Solution {
         public ListNode reverseKGroup(ListNode head, int k) {
-            return null;
+            if (k == 1 || head == null) {
+                return head;
+            }
+            return reverseList(head, k - 1);
         }
+
+        public ListNode reverseList(ListNode head, int k) {
+            ListNode pre = null, res = null;
+            ListNode start = head;
+            while (true) {
+                int count;
+                ListNode end = start;
+                for (count = 0; count < k; count++) {
+                    if (end == null) {
+                        break;
+                    }
+                    end = end.next;
+                }
+                if (count != k || end == null) {
+                    break;
+                }
+                ListNode node = end == null ? null : end.next;
+                end.next = null;
+                reverse(start);
+
+                if (pre != null) {
+                    pre.next = end;
+                } else {
+                    res = end;
+                }
+                pre = start;
+                start = node;
+            }
+            if (pre != null) {
+                pre.next = start;
+            }
+            return res;
+
+        }
+
+        private void reverse(ListNode head) {
+            ListNode pre = head;
+            ListNode post = head.next;
+            while (post != null) {
+                ListNode tmp = post.next;
+                post.next = pre;
+                pre = post;
+                post = tmp;
+            }
+
+        }
+
     }
+
+
 //leetcode submit region end(Prohibit modification and deletion)
 
 }

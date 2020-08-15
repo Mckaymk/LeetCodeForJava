@@ -62,30 +62,29 @@ public class P21MergeTwoSortedLists {
             } else if (l2 == null) {
                 return l1;
             }
-            ListNode tmp;
-            if (l1.val > l2.val) {
-                tmp = l1;
-                l1 = l2;
-                l2 = tmp;
-            }
-            tmp = l1;
-            ListNode p1 = tmp.next;
+            ListNode res = new ListNode(-1);
+
+            ListNode p1 = l1;
             ListNode p2 = l2;
+            ListNode p3 = res;
+
             while (p1 != null && p2 != null) {
-                if (p1.val > p2.val) {
-                    tmp.next = p2;
-                    p2 = p2.next;
-                    tmp.next.next = p1;
-                    tmp = tmp.next;
-                } else {
-                    tmp = p1;
+                if (p1.val < p2.val) {
+                    p3.next = p1;
                     p1 = p1.next;
+                } else {
+                    p3.next = p2;
+                    p2 = p2.next;
                 }
+                p3 = p3.next;
+            }
+            if (p1 != null) {
+                p3.next = p1;
             }
             if (p2 != null) {
-                tmp.next = p2;
+                p3.next = p2;
             }
-            return l1;
+            return res.next;
             //recursively
 //            if (l1 == null) return l2;
 //            if (l2 == null) return l1;
