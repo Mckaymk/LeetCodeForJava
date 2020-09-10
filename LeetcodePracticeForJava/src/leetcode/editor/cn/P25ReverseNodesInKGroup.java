@@ -53,7 +53,42 @@ public class P25ReverseNodesInKGroup {
             return reverseList(head, k - 1);
         }
 
-        public ListNode reverseList(ListNode head, int k) {
+        private ListNode reverseList(ListNode head, int k) {
+
+            ListNode pre = null, res = null;
+            ListNode start = head;
+            while (true) {
+                ListNode end = start;
+                int count;
+                for (count = 0; count < k; count++) {
+                    if (end == null) {
+                        break;
+                    }
+                    end = end.next;
+                }
+                if (count != k || end == null) {
+                    break;
+                }
+                ListNode tmpNode = end.next;
+                end.next = null;
+                reverse(start);
+                if (pre == null) {
+                    res = end;
+                } else {
+                    pre.next = end;
+                }
+                pre = start;
+                start = tmpNode;
+            }
+            if (pre != null) {
+                pre.next = start;
+            }
+            return res;
+
+        }
+
+
+        public ListNode reverseList1(ListNode head, int k) {
             ListNode pre = null, res = null;
             ListNode start = head;
             while (true) {
@@ -68,7 +103,7 @@ public class P25ReverseNodesInKGroup {
                 if (count != k || end == null) {
                     break;
                 }
-                ListNode node = end == null ? null : end.next;
+                ListNode node = end.next;
                 end.next = null;
                 reverse(start);
 

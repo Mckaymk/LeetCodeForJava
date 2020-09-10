@@ -39,34 +39,74 @@
 // Related Topics 链表 双指针
 
 package leetcode.editor.cn;
+
 //java:环形链表
-public class P141LinkedListCycle{
-    public static void main(String[] args){
+public class P141LinkedListCycle {
+    public static void main(String[] args) {
         Solution solution = new P141LinkedListCycle().new Solution();
         //TO TEST
         //1、暴力，遍历，hash
         //2、快慢指针
         //
     }
-    
+
 
 //leetcode submit region begin(Prohibit modification and deletion)
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) {
- *         val = x;
- *         next = null;
- *     }
- * }
- */
-public class Solution {
-    public boolean hasCycle(ListNode head) {
-        return true;
-    }
-}
-//leetcode submit region end(Prohibit modification and deletion)
 
+    /**
+     * Definition for singly-linked list.
+     * class ListNode {
+     * int val;
+     * ListNode next;
+     * ListNode(int x) {
+     * val = x;
+     * next = null;
+     * }
+     * }
+     */
+    public class Solution {
+        public boolean hasCycle(ListNode head) {
+            if (head == null || head.next == null) {
+                return false;
+            }
+            ListNode slow = head;
+            ListNode fast = head.next;
+            while (slow != fast) {
+                if (fast == null || fast.next == null) {
+                    return false;
+                }
+                slow = slow.next;
+                fast = fast.next.next;
+            }
+            return true;
+
+        }
+
+        public boolean hasCycle1(ListNode head) {
+            if (head == null || head.next == null) {
+                return false;
+            }
+            ListNode slow = head;
+            ListNode fast = head.next;
+            while (slow != fast) {
+                if (fast == null || fast.next == null) {
+                    return false;
+                }
+                slow = slow.next;
+                fast = fast.next.next;
+            }
+            return true;
+        }
+    }
+
+    //leetcode submit region end(Prohibit modification and deletion)
+    class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int x) {
+            val = x;
+            next = null;
+        }
+    }
 }

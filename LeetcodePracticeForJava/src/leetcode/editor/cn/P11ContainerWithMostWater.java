@@ -24,7 +24,7 @@ public class P11ContainerWithMostWater {
         //TO TEST
         //1、n^2，暴力解法，left bar,right bar,
         //2、n，从两边往中间移动，寻找最高的柱子
-        int[] nums = {1,7,4,2,5,5,6,3,5};
+        int[] nums = {1, 7, 4, 2, 5, 5, 6, 3, 5};
         System.out.println(solution.maxArea(nums));
     }
 
@@ -32,6 +32,7 @@ public class P11ContainerWithMostWater {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int maxArea(int[] height) {
+
             int max = 0;
             for (int i = 0, j = height.length - 1; i < j; ) {
                 int minHeight = height[i] < height[j] ? height[i++] : height[j--];

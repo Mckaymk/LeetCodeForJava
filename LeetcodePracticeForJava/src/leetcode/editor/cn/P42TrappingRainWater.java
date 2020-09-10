@@ -30,54 +30,72 @@ public class P42TrappingRainWater {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int trap(int[] height) {
-            if (height.length <= 1) {
-                return 0;
-            }
-            int res = 0;
-            int leftMax = height[0];
-            int rightMax = 0;
-            for (int i = 1; i < height.length - 1; i++) {
-                for (int j = i + 1; j < height.length; j++) {
-                    rightMax = Math.max(rightMax, height[j]);
-                }
-//                for (int j = 0; j < i; j++) {
-//                    leftMax = Math.max(leftMax, height[j]);
-//                }
-                if (height[i] < leftMax && height[i] < rightMax) {
-//                    System.out.println();
-                    res += Math.min(rightMax, leftMax) - height[i];
-                }
-                leftMax = Math.max(height[i],leftMax);
-                rightMax = 0;
-            }
-            return res;
-
-//            左右双指针
 //            if (height.length <= 1) {
 //                return 0;
 //            }
 //            int res = 0;
-//            int left = 0, right = height.length - 1;
-//            int left_max = 0, right_max = 0;
-//            while (left < right) {
-//                if (height[left] < height[right]) {
-//                    if (height[left] >= left_max) {
-//                        left_max = height[left];
-//                    } else {
-//                        res += (left_max - height[left]);
-//                    }
-//                    left++;
-//                } else {
-//                    if (height[right] >= right_max) {
-//                        right_max = height[right];
-//                    }
-//                    {
-//                        res += (right_max - height[right]);
-//                    }
-//                    --right;
+//            int leftMax = height[0];
+//            int rightMax = 0;
+//            for (int i = 1; i < height.length - 1; i++) {
+//                for (int j = i + 1; j < height.length; j++) {
+//                    rightMax = Math.max(rightMax, height[j]);
 //                }
+//                if (height[i] < leftMax && height[i] < rightMax) {
+//                    res += Math.min(rightMax, leftMax) - height[i];
+//                }
+//                leftMax = Math.max(height[i],leftMax);
+//                rightMax = 0;
 //            }
 //            return res;
+//            左右双指针
+            if (height.length <= 1) {
+                return 0;
+            }
+            int left = 0, right = height.length - 1;
+            int leftMax = 0;
+            int rightMax = 0;
+            int res = 0;
+            while (left < right) {
+                if (height[left] < height[right]) {
+                    leftMax = Math.max(leftMax, height[left]);
+                    res += leftMax - height[left];
+                    left++;
+                } else {
+                    rightMax = Math.max(rightMax, height[right]);
+                    res += rightMax - height[right];
+                    right--;
+                }
+            }
+            return res;
+
+        }
+
+
+        private int doublePointer(int[] height) {
+            if (height.length <= 1) {
+                return 0;
+            }
+            int res = 0;
+            int left = 0, right = height.length - 1;
+            int left_max = 0, right_max = 0;
+            while (left < right) {
+                if (height[left] < height[right]) {
+                    if (height[left] >= left_max) {
+                        left_max = height[left];
+                    } else {
+                        res += (left_max - height[left]);
+                    }
+                    left++;
+                } else {
+                    if (height[right] >= right_max) {
+                        right_max = height[right];
+                    } else {
+                        res += (right_max - height[right]);
+                    }
+                    --right;
+                }
+            }
+            return res;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

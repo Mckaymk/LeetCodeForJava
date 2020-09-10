@@ -20,20 +20,45 @@
 // Related Topics 排序 数组 双指针
 
 package leetcode.editor.cn;
+
+import java.util.Arrays;
+
 //java:颜色分类
-public class P75SortColors{
-    public static void main(String[] args){
+public class P75SortColors {
+    public static void main(String[] args) {
         Solution solution = new P75SortColors().new Solution();
         //TO TEST
+        int[] nums = {2, 0, 2, 1, 1, 0};
+//        int[] nums = {1, 2, 0};
+        solution.sortColors(nums);
+        System.out.println(Arrays.toString(nums));
     }
-    
 
-//leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public void sortColors(int[] nums) {
-        
+
+    //leetcode submit region begin(Prohibit modification and deletion)
+    class Solution {
+        public void sortColors(int[] nums) {
+            int redPointer = 0, bluePointer = nums.length - 1;
+            int i = 0;
+            int tmp;
+            while (i <= bluePointer) {
+                if (nums[i] == 0) {
+                    tmp = nums[redPointer];
+                    nums[redPointer++] = nums[i];
+                    nums[i++] = tmp;
+
+                } else if (nums[i] == 2) {
+                    tmp = nums[bluePointer];
+                    nums[bluePointer--] = nums[i];
+                    nums[i] = tmp;
+                } else {
+                    i++;
+                }
+            }
+
+
+        }
     }
-}
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
