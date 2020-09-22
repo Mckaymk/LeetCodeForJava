@@ -14,7 +14,11 @@
 //
 // 说明: 你可以假设 n 不小于 2 且不大于 58。 
 // Related Topics 数学 动态规划 
+<<<<<<< HEAD
 // 👍 368 👎 0
+=======
+// 👍 363 👎 0
+>>>>>>> 4c9852c5397fc85c49b51bb582d525fe1ade9c45
 
 
 package leetcode.editor.cn;
@@ -29,6 +33,7 @@ public class P343IntegerBreak {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int integerBreak(int n) {
+<<<<<<< HEAD
             int[] dp = new int[n + 1];
             for (int i = 2; i <= n; i++) {
                 int curMax = 0;
@@ -50,6 +55,9 @@ public class P343IntegerBreak {
 //                return (int) Math.pow(3, a - 1) * 4;
 //            }
 //            return (int) Math.pow(3, a) * 2;
+=======
+            return 0;
+>>>>>>> 4c9852c5397fc85c49b51bb582d525fe1ade9c45
 
         }
     }
