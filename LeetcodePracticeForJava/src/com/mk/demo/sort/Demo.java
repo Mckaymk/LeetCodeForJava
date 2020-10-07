@@ -1,6 +1,5 @@
 package com.mk.demo.sort;
 
-import javax.sound.midi.SoundbankResource;
 import java.util.Arrays;
 
 /**
@@ -43,7 +42,7 @@ public class Demo {
         //for循环这样写会更好一点：i的左子树和右子树分别2i+1和2(i+1)
         for (int i = (len / 2 - 1); i >= 0; i--) {
             adjustHeap(array, i);
-            System.out.println(Arrays.toString(array));
+//            System.out.println(Arrays.toString(array));
         }
     }
 
@@ -79,7 +78,7 @@ public class Demo {
         int[] tmp = new int[right - left + 1];
         int i = 0;
         int n = mid;
-        while (left < mid && mid <= right) {
+        while (left < n && mid <= right) {
             if (array[left] < array[mid]) {
                 tmp[i++] = array[left++];
             } else {

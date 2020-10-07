@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,9 +28,14 @@ public class Demo {
 ////        int x = 1,y=2,z=3;
 ////        y+=z--/x++;
 ////        System.out.println(y);
-        int []num = {1,2,3,4,5,6,7,8,9,10};
-        System.out.println(binarySearch(num, 8
-        ));
+//        int []num = {1,2,3,4,5,6,7,8,9,10};
+//        System.out.println(binarySearch(num, 8));
+        double a = 4.0;
+        double b = 3.0;
+        int num = 100; // 保留bai多少位小数du
+        double c = new BigDecimal("" + a / b).setScale(num, BigDecimal.ROUND_HALF_UP).doubleValue();
+        System.out.println(c);
+        System.out.println(c);
 
     }
 
