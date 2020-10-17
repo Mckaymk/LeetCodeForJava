@@ -1,4 +1,4 @@
 # Default ignored files
-.idea
-*.json
-*.iml
+LeetcodePracticeForJava/.idea
+LeetcodePracticeForJava/*.json
+LeetcodePracticeForJava/*.iml
