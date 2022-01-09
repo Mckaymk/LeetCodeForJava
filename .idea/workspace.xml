@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="E:\software\warehouse\mavenLocalReposity" />
+        <option name="mavenHome" value="E:/software/warehouse/apache-maven-3.5.4" />
+        <option name="userSettingsFile" value="E:\software\warehouse\apache-maven-3.5.4\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="E:/software/warehouse/sbt/bin/sbt-launch.jar" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+  </component>
+</project>
