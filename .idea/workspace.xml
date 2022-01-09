@@ -7,13 +7,27 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="localRepository" value="E:\software\warehouse\mavenLocalReposity" />
-        <option name="mavenHome" value="E:/software/warehouse/apache-maven-3.5.4" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../../software/warehouse/apache-maven-3.5.4" />
         <option name="userSettingsFile" value="E:\software\warehouse\apache-maven-3.5.4\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="E:/software/warehouse/sbt/bin/sbt-launch.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../software/warehouse/sbt/bin/sbt-launch.jar" />
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Solution" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Solution" />
+      <module name="test001" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Solution" />
+      </list>
+    </recent_temporary>
   </component>
 </project>

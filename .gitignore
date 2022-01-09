@@ -3,6 +3,10 @@ LeetcodePracticeForJava/.idea
 LeetcodePracticeForJava/*.json
 LeetcodePracticeForJava/*.iml
 LeetcodePracticeForJava/target### Java template
+.idea
+*.json
+L*.iml
+target### Java template
 # Compiled class file
 *.class
 
