@@ -13,6 +13,7 @@
 
 package leetcode.editor.cn;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,8 +22,8 @@ public class P1TwoSum {
     public static void main(String[] args) {
         Solution solution = new P1TwoSum().new Solution();
         //TO TEST
+        System.out.println(Arrays.toString(solution.twoSum(new int[] {2, 7, 11, 15}, 9)));
     }
-
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
@@ -32,7 +33,7 @@ public class P1TwoSum {
             for (int i = 0; i < nums.length; i++) {
                 tmp = target - nums[i];
                 if (map.containsKey(tmp)) {
-                    return new int[]{map.get(tmp), i};
+                    return new int[] {map.get(tmp), i};
                 }
                 map.put(nums[i], i);
             }
