@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ScalaSbtSettings">
+    <option name="customLauncherEnabled" value="true" />
+    <option name="customLauncherPath" value="E:\software\warehouse\sbt\bin\sbt-launch.jar" />
+    <option name="customVMPath" />
+    <option name="maximumHeapSize" value="2048" />
+    <option name="vmParameters" value="-XX:MetaspaceSize=2048m -Dsbt.ivy.home=E:\software\warehouse\sbt\.ivy2 -Dsbt.repository.config=E:\software\warehouse\sbt\conf\repo.properties -Dsbt.override.build.repos=true" />
+  </component>
+</project>
