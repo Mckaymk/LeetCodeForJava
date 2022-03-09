@@ -89,7 +89,8 @@ class P94BinaryTreeInorderTraversalTest {
 //            ArrayList<Integer> res = new ArrayList<>();
 //            recursion(root, res);
 //            return res;
-            return iter(root);
+//            return iter(root);
+            return iter2(root);
         }
 
         public void recursion(TreeNode root, List<Integer> res) {
@@ -118,6 +119,26 @@ class P94BinaryTreeInorderTraversalTest {
             }
             return res;
         }
+
+        public List<Integer> iter2(TreeNode root) {
+            Stack<TreeNode> stack = new Stack<>();
+            List<Integer> res = new ArrayList<>();
+            TreeNode curr = root;
+
+            while (!stack.isEmpty() || curr != null) {
+                if (curr != null) {
+                    stack.push(curr);
+                    curr = curr.left;
+                } else {
+                    curr = stack.pop();
+                    res.add(curr.val);
+                    curr = curr.right;
+                }
+
+            }
+            return res;
+        }
+
     }
 //leetcode submit region end(Prohibit modification and deletion)
 

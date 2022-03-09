@@ -34,6 +34,7 @@ package leetcode.editor.cn;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 class P95UniqueBinarySearchTreesIiTest {
@@ -41,6 +42,10 @@ class P95UniqueBinarySearchTreesIiTest {
     public void solutionTest() {
         Solution solution = new P95UniqueBinarySearchTreesIiTest().new Solution();
         //TO TEST
+        List<TreeNode> nodes = solution.generateTrees(3);
+        for (TreeNode node : nodes) {
+            System.out.println(node.val);
+        }
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
@@ -63,18 +68,54 @@ class P95UniqueBinarySearchTreesIiTest {
     class Solution {
         public List<TreeNode> generateTrees(int n) {
 
-            return new ArrayList<>();
+            if (n == 0) {
+                return new LinkedList<TreeNode>();
+            }
+            return build(1, n);
         }
 
-        public int count(int lo, int hi) {
+        public List<TreeNode> build(int lo, int hi) {
+            List<TreeNode> res = new LinkedList<>();
             if (lo > hi) {
-                return 0;
+                res.add(null);
+                return res;
             }
-            int res = 0;
             for (int i = lo; i <= hi; i++) {
-                int left = count(lo, i - 1);
-                int right = count(i + 1, hi);
-                res += left * right;
+                List<TreeNode> leftTree = build(lo, i - 1);
+                List<TreeNode> rightTree = build(i + 1, hi);
+                for (TreeNode left : leftTree) {
+                    for (TreeNode right : rightTree) {
+                        TreeNode root = new TreeNode(i);
+                        root.left = left;
+                        root.right = right;
+                        res.add(root);
+                    }
+                }
+            }
+
+            return res;
+        }
+
+        public List<TreeNode> build2(int lo, int hi) {
+            LinkedList<TreeNode> res = new LinkedList<>();
+            if (lo > hi) {
+                res.add(null);
+                return res;
+            }
+            for (int i = lo; i <= hi; i++) {
+
+                List<TreeNode> leftTree = build2(lo, i - 1);
+                List<TreeNode> rightTree = build2(i + 1, hi);
+
+                for (TreeNode left : leftTree) {
+                    for (TreeNode right : rightTree) {
+                        TreeNode root = new TreeNode(i);
+                        root.left = left;
+                        root.right = right;
+                        res.add(root);
+                    }
+                }
+
             }
             return res;
         }
