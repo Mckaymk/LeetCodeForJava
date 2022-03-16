@@ -82,6 +82,21 @@ class P98ValidateBinarySearchTreeTest {
             return isValidBST(root.left, min, root)
                     && isValidBST(root.right, root, max);
         }
+
+        public boolean isValidBST2(TreeNode root, TreeNode min, TreeNode max) {
+            if (root == null) {
+                return true;
+            }
+            if (min != null && min.val > root.val) {
+                return false;
+            }
+            if (max != null && max.val < root.val) {
+                return false;
+            }
+
+            return isValidBST2(root.left, min, root)
+                    && isValidBST2(root.right, root, max);
+        }
     }
 //leetcode submit region end(Prohibit modification and deletion)
 

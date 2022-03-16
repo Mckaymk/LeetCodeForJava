@@ -1,6 +1,9 @@
 package com.mk.demo;
 
-import java.util.Optional;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
 
 /**
  * @author Mckay
@@ -8,10 +11,16 @@ import java.util.Optional;
  * @description
  **/
 public class OptionalTest {
-    public static void main(String[] args) {
-        Optional<String> optional = Optional.ofNullable(null);
-        System.out.println("dd");
-        System.out.println(optional.isPresent());
+    public static void main(String[] args) throws IOException {
+        RandomAccessFile file = new RandomAccessFile("./data.txt", "rw");
+        FileChannel fileChannel = file.getChannel();
+        ByteBuffer buffer = ByteBuffer.allocate(64);
+        buffer.put("hello".getBytes());
+        buffer.flip();
+        fileChannel.write(buffer);
+
+        file.close();
+
     }
 
     public static boolean compare(int a, int b) {

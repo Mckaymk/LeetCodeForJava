@@ -51,7 +51,7 @@ class P543DiameterOfBinaryTreeTest {
         int maxLen = Integer.MIN_VALUE;
 
         public int diameterOfBinaryTree(TreeNode root) {
-            postOrder(root);
+            postOrder2(root);
             return maxLen;
         }
 
@@ -63,6 +63,16 @@ class P543DiameterOfBinaryTreeTest {
             int right = postOrder(root.right);
             maxLen = Math.max(left + right, maxLen);
             return Math.max(left, right) + 1;
+        }
+
+        int postOrder2(TreeNode root) {
+            if (root == null) {
+                return 0;
+            }
+            int leftMax = postOrder2(root.left);
+            int rightMax = postOrder2(root.right);
+            maxLen = Math.max(maxLen, leftMax + rightMax);
+            return Math.max(leftMax, rightMax) + 1;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
